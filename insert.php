@@ -17,9 +17,11 @@
     $place = $_POST['place'];
     $password = $_POST['password'];
 
+    $HashedPassword = password_hash($password, PASSWORD_DEFAULT);
+
     $sql = "INSERT INTO holiday(name, place, password) VALUES(?,?,?)";
     $stmt = $conn -> prepare($sql);
-    $stmt -> execute([$name, $place, $password]);
+    $stmt -> execute([$name, $place, $HashedPassword]);
     header("location:select.php");
 }
 

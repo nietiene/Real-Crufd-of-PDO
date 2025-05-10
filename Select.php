@@ -1,6 +1,12 @@
-<?php include('conn.php');?>
+<?php include('conn.php');
+
+if (!isset($_SESSION['user'])) {
+    header("Location: login.php");
+}
+?>
 
 <h2>All users</h2>
+<a href="insert.php">Add New</a>
 <table border="1" cellpadding="5" cellspacing="5">
     <tr>
         <th>Id</th>
@@ -26,3 +32,4 @@
     }
    ?>
 </table>
+<a href="logout.php">Logout</a>
